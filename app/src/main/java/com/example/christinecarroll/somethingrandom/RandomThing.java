@@ -14,8 +14,10 @@ public class RandomThing implements Serializable {
     private int timeInHours;
     private TypeOfActivity typeOfActivity;
     private boolean repeatable;
-
     private int numberOfTimesPicked;
+
+    public final static String numberOfTimesPickedAddOnKey = "-TimesCompleted";
+
 
     public int getNumberOfTimesPicked() {
         return numberOfTimesPicked;

@@ -6,5 +6,4 @@ package com.example.christinecarroll.somethingrandom;
 
 public  class MyAppVariables {
     public final static String sharedPreferencesFile = "com.example.christinecarroll.somethingrandom.preferences";
-    public final static String numberOfTimesPickedAddOnKey = "-TimesCompleted";
 }
