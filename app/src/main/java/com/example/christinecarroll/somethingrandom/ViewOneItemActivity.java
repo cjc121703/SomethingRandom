@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class ViewOneItemActivity extends AppCompatActivity {
     RandomThing randomThing;
     TextView timesViewedTextView;
@@ -36,25 +34,25 @@ public class ViewOneItemActivity extends AppCompatActivity {
         final Intent randomListIntent = new Intent(this, RandomThingsListActivity.class);
 
 
-        final Button button = findViewById(R.id.pickButton  );
+        final Button button = findViewById(R.id.pickButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //descriptionTextView.setText(Integer.toString(randomThing.getId()));
-                randomThing.setNumberOfTimesPicked(randomThing.getNumberOfTimesPicked()+1);
-                saveTotalTimes();
+                int newNumberOfTimePicked = randomThing.getNumberOfTimesPicked()+1;
+                randomThing.setNumberOfTimesPicked(newNumberOfTimePicked);
+                saveTotalTimesPicked();
                 startActivity(randomListIntent);
                 //increase the count for how many times this was picked
             }
         });
     }
 
-    private void saveTotalTimes(){
+    private void saveTotalTimesPicked(){
         //saving items to the phone
-        SharedPreferences sharedPreferences = getSharedPreferences(EnvironmentalVariables.sharedPreferencesFile, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(MyAppVariables.sharedPreferencesFile, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         //I need to save this with a key that is unique.  I will be using the item key and the phrase -TimesCompleted, just in case I want to save something else for the item later.
-        editor.putInt(Integer.toString(randomThing.getId())+"-TimesCompleted",randomThing.getNumberOfTimesPicked());
+        editor.putInt(Integer.toString(randomThing.getId())+ MyAppVariables.numberOfTimesPickedAddOnKey,randomThing.getNumberOfTimesPicked());
         editor.apply();
 
     }

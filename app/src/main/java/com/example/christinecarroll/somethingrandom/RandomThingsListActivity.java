@@ -6,11 +6,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-
-import java.util.List;
 
 public class RandomThingsListActivity extends AppCompatActivity {
     // This is the Adapter being used to display the list's data
@@ -50,8 +46,8 @@ public class RandomThingsListActivity extends AppCompatActivity {
 
     private int getTotalTimesCompleted(int key){
         //getting the saved data from the phone
-        SharedPreferences sharedPreferences = getSharedPreferences(EnvironmentalVariables.sharedPreferencesFile, Context.MODE_PRIVATE);
-        int numberOfTimes = sharedPreferences.getInt(Integer.toString(key)+"-TimesCompleted",0);
+        SharedPreferences sharedPreferences = getSharedPreferences(MyAppVariables.sharedPreferencesFile, Context.MODE_PRIVATE);
+        int numberOfTimes = sharedPreferences.getInt(Integer.toString(key)+ MyAppVariables.numberOfTimesPickedAddOnKey,0);
         return numberOfTimes;
     }
 }
