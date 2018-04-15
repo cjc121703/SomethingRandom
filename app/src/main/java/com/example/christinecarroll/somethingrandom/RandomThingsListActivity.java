@@ -20,7 +20,6 @@ public class RandomThingsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
         final Intent intent = new Intent(this, ViewOneItemActivity.class);
 
-
         for (RandomThing randomThing:
                 RandomThing.randomThings) {
             randomThing.setNumberOfTimesPicked(getTotalTimesCompleted(randomThing.getId()));

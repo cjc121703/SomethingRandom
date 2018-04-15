@@ -1,6 +1,10 @@
 package com.example.christinecarroll.somethingrandom;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,6 +43,7 @@ public class RandomThingsListAdapter extends RecyclerView.Adapter<RandomThingsLi
 
         RandomThing randomThing = RandomThingHolder.getInstance().getRandomThings().get(position);
         Log.e("name", randomThing.getName());
+        setBackgroundColor(holder, randomThing);
         holder.mMytextview.setText(randomThing.getName());
         holder.numberOfTimesView.setText(Integer.toString(randomThing.getNumberOfTimesPicked()));
     }
@@ -47,5 +52,26 @@ public class RandomThingsListAdapter extends RecyclerView.Adapter<RandomThingsLi
     public int getItemCount(){
         Log.e("Total items: ", Integer.toString(RandomThingHolder.getInstance().getRandomThings().size()));
         return RandomThing.randomThings.size();
+    }
+
+    private void setBackgroundColor(MyViewHolder myViewHolder, RandomThing randomThing){
+
+        switch (randomThing.getTypeOfActivity()){
+            case HEALTH:
+                myViewHolder.itemView.setBackgroundColor(Color.parseColor("#496DDB"));
+                break;
+            case FUN:
+                myViewHolder.itemView.setBackgroundColor(Color.parseColor("#C95D63"));
+                break;
+            case WORK:
+                myViewHolder.itemView.setBackgroundColor(Color.parseColor("#EE8434"));
+                break;
+            case UPKEEP:
+                myViewHolder.itemView.setBackgroundColor(Color.parseColor("#717EC3"));
+                break;
+            case LEARNING:
+                myViewHolder.itemView.setBackgroundColor(Color.parseColor("#AE8799"));
+                break;
+        }
     }
 }
