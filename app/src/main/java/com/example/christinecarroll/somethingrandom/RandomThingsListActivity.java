@@ -47,7 +47,7 @@ public class RandomThingsListActivity extends AppCompatActivity {
     private int getTotalTimesCompleted(int key){
         //getting the saved data from the phone
         SharedPreferences sharedPreferences = getSharedPreferences(MyAppVariables.sharedPreferencesFile, Context.MODE_PRIVATE);
-        int numberOfTimes = sharedPreferences.getInt(Integer.toString(key)+ MyAppVariables.numberOfTimesPickedAddOnKey,0);
+        int numberOfTimes = sharedPreferences.getInt(Integer.toString(key)+ RandomThing.numberOfTimesPickedAddOnKey,0);
         return numberOfTimes;
     }
 }

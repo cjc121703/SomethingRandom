@@ -52,7 +52,7 @@ public class ViewOneItemActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(MyAppVariables.sharedPreferencesFile, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         //I need to save this with a key that is unique.  I will be using the item key and the phrase -TimesCompleted, just in case I want to save something else for the item later.
-        editor.putInt(Integer.toString(randomThing.getId())+ MyAppVariables.numberOfTimesPickedAddOnKey,randomThing.getNumberOfTimesPicked());
+        editor.putInt(Integer.toString(randomThing.getId())+ RandomThing.numberOfTimesPickedAddOnKey,randomThing.getNumberOfTimesPicked());
         editor.apply();
 
     }
